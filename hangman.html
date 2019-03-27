@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="UTF-8">
+	<title>Игра "Виселица"</title>
+	</head>
+	<body>
+		<h1>Виселица.</h1>
+		
+<script>
+var words = [  
+	"мистер",
+	"танк",
+	"профессионал",
+	"майнкрафт", 
+	"слово",
+	"ноутбук",
+	"мышь",
+	"школа",
+	"друзья",
+	"телефон",
+	"адаптер",
+	"тетрадь",
+	"ручка",
+	"калач",
+	"книга",
+	"черчение",
+	"дневник",
+	"часы",
+	"наушники"
+];
+
+var word = words[Math.floor(Math.random() * words.length)];
+
+alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер будет" + 
+ " загадывать слово, а вы отгадывать его.") 
+
+var answerArray = [];
+for (var i = 0; i < word.length; i++) {
+	answerArray[i] = "_";
+}
+
+var remainingLetters = word.length;
+var userExited = false;
+
+while (remainingLetters > 0) {
+	alert("Загаданое компьютером слово: " + answerArray.join(" "));
+	var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+	if (guess === null) { 
+		userExited = true; 
+		break;
+	} else if (guess.length !== 1) {
+		alert("Пожалуйста, введите только одну букву.");
+	} else	{   
+		for (var j = 0; j < word.length; j++) {
+			if (word[j] === guess) {
+				answerArray[j] = guess; 
+				remainingLetters--;
+			} 
+		} 
+	}
+}
+
+if (userExited) {
+	alert("Очень жаль что вы завершили игру! Возвращайтесь в нашу игру. " +
+	"Было загадано слово: \"" +word + "\"");
+} else {
+	alert("Победа! Было загадано слово: \"" + word + "\""); 	
+}		 
+</script>
+</body>
+</html>

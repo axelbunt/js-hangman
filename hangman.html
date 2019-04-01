@@ -43,21 +43,33 @@ for (var i = 0; i < word.length; i++) {
 var remainingLetters = word.length;
 var userExited = false;
 
+alert("Загаданое компьютером слово: " + answerArray.join(" "));
 while (remainingLetters > 0) {
-	alert("Загаданое компьютером слово: " + answerArray.join(" "));
 	var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
 	if (guess === null) { 
 		userExited = true; 
 		break;
 	} else if (guess.length !== 1) {
 		alert("Пожалуйста, введите только одну букву.");
-	} else	{   
+	} else	{ 
+		var correctLetter = false;		
 		for (var j = 0; j < word.length; j++) {
-			if (word[j] === guess) {
-				answerArray[j] = guess; 
-				remainingLetters--;
-			} 
-		} 
+			if (word[j] === guess) {       
+				answerArray[j] = guess;     
+				remainingLetters--; 
+				correctLetter = true;
+			}
+		}
+		if (remainingLetters > 0) {
+			if (correctLetter === false) {
+				alert("К сожалению, этой буквы в слове нет: " + 
+				answerArray.join(" "));
+			} else {
+				alert("Введённая вами буква верна: " + answerArray.join(" "));
+			}
+		} else {
+			break;
+		}	
 	}
 }
 

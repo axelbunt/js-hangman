@@ -61,7 +61,7 @@ var words = [
 	"стол",
 	"велосипед",
 	"пирамида",
-	"число",	
+	"число",
 ];
 
 var word = words[Math.floor(Math.random() * words.length)];
@@ -86,6 +86,7 @@ while (remainingLetters > 0) {
 	} else if (guess.length !== 1) {
 		alert("Пожалуйста, введите только одну букву.");
 	} else	{
+		guess = guess.toLowerCase();
 		var correctLetter = false;
 		for (var j = 0; j < word.length; j++) {
 			if (word[j] === guess) {

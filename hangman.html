@@ -77,8 +77,9 @@ for (var i = 0; i < word.length; i++) {
 var remainingLetters = word.length;
 var userExited = false;
 
+var turnCount = 6;
 alert("Загаданое компьютером слово: " + answerArray.join(" "));
-while (remainingLetters > 0) {
+while (remainingLetters > 0 && turnCount > 0) {
 	var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
 	if (guess === null) {
 		userExited = true;
@@ -97,8 +98,10 @@ while (remainingLetters > 0) {
 		}
 		if (remainingLetters > 0) {
 			if (correctLetter === false) {
+				turnCount--;
 				alert("К сожалению, этой буквы в слове нет: " +
-				answerArray.join(" "));
+				answerArray.join(" ") + ". У Вас осталось попыток: " +
+				turnCount + ".");
 			} else {
 				alert("Введённая вами буква верна: " + answerArray.join(" "));
 			}
@@ -111,6 +114,9 @@ while (remainingLetters > 0) {
 if (userExited) {
 	alert("Очень жаль что вы завершили игру! Возвращайтесь в нашу игру. " +
 	"Было загадано слово: \"" +word + "\".");
+} else if (turnCount === 0) {
+	alert("К сожалению, попытки кончились! Было загадано слово: \"" + word +
+	"\".");
 } else {
 	alert("Победа! Было загадано слово: \"" + word + "\".");
 }

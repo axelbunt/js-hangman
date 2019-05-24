@@ -67,7 +67,7 @@ var words = [
 var word = words[Math.floor(Math.random() * words.length)];
 
 alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер будет" +
- " загадывать слово, а вы отгадывать его.")
+ " загадывать слово, а вы отгадывать его. У Вас будет 11 попыток.")
 
 var answerArray = [];
 for (var i = 0; i < word.length; i++) {
@@ -77,7 +77,7 @@ for (var i = 0; i < word.length; i++) {
 var remainingLetters = word.length;
 var userExited = false;
 
-var turnCount = 6;
+var turnCount = 11;
 alert("Загаданое компьютером слово: " + answerArray.join(" "));
 while (remainingLetters > 0 && turnCount > 0) {
 	var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");

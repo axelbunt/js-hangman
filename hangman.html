@@ -64,63 +64,105 @@ var words = [
 	"число",
 ];
 
-var word = words[Math.floor(Math.random() * words.length)];
-var turnCount = 11;
-
-alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер будет" +
- " загадывать слово, а вы отгадывать его. У Вас будет " + turnCount +
- " попыток.");
-
-var answerArray = [];
-for (var i = 0; i < word.length; i++) {
-	answerArray[i] = "_";
+function pickWord(words) {
+	return words[Math.floor(Math.random() * words.length)];
 }
 
+function setupAnswerArray(word) {
+	var answerArray = [];
+	for (var i = 0; i < word.length; i++) {
+		answerArray[i] = "_";
+	}
+	return answerArray;
+}
+
+function getGuess() {
+	return prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+}
+
+function showAnswerAndRatePlayer(userExited, turnCount, word) {
+	if (userExited) {
+		alert("Очень жаль что вы завершили игру! Возвращайтесь в нашу игру. " +
+			"Было загадано слово: \"" + word + "\".");
+	} else if (turnCount === 0) {
+		alert("К сожалению, попытки кончились! Было загадано слово: \"" + word +
+			"\".");
+	} else {
+		alert("Победа! Было загадано слово: \"" + word + "\".");
+	}
+}
+
+function greeting() {
+	alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер будет" +
+	" загадывать слово, а вы отгадывать его. У Вас будет " + turnCount +
+	" попыток.");
+}
+
+function intro(answerArray) {
+	alert("Загаданое компьютером слово: " + answerArray.join(" "));
+}
+
+function askForSingleLetter() {
+	alert("Пожалуйста, введите только одну букву.");
+}
+
+function notifyAboutWrongAnswer(answerArray, turnCount) {
+	alert("К сожалению, этой буквы в слове нет: " +answerArray.join(" ") +
+	". У Вас осталось попыток: " + turnCount + ".");
+}
+
+function notifyAboutRightAnswer(answerArray) {
+	alert("Введённая вами буква верна: " + answerArray.join(" "));
+}
+
+function openLettersAndNotify(guess, word, answerArray, remainingLetters,
+turnCount) {
+	guess = guess.toLowerCase();
+	var correctLetter = false;
+	for (var j = 0; j < word.length; j++) {
+		if (word[j] === guess && answerArray[j] == "_") {
+			answerArray[j] = guess;
+			remainingLetters--;
+			correctLetter = true;
+		}
+	}
+	if (remainingLetters > 0) {
+		if (correctLetter === false) {
+			turnCount--;
+			notifyAboutWrongAnswer(answerArray, turnCount);
+		} else {
+			notifyAboutRightAnswer(answerArray);
+		}
+	}
+	return {
+		newRemainingLetters: remainingLetters,
+		newTurnCount: turnCount,
+	}
+}
+
+var word = pickWord(words);
+var turnCount = 11;
+var answerArray = setupAnswerArray(word);
 var remainingLetters = word.length;
 var userExited = false;
 
-alert("Загаданое компьютером слово: " + answerArray.join(" "));
+greeting();
+intro(answerArray);
 while (remainingLetters > 0 && turnCount > 0) {
-	var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+	var guess = getGuess();
 	if (guess === null) {
 		userExited = true;
 		break;
 	} else if (guess.length !== 1) {
-		alert("Пожалуйста, введите только одну букву.");
-	} else	{
-		guess = guess.toLowerCase();
-		var correctLetter = false;
-		for (var j = 0; j < word.length; j++) {
-			if (word[j] === guess && answerArray[j] == "_") {
-				answerArray[j] = guess;
-				remainingLetters--;
-				correctLetter = true;
-			}
-		}
-		if (remainingLetters > 0) {
-			if (correctLetter === false) {
-				turnCount--;
-				alert("К сожалению, этой буквы в слове нет: " +
-				answerArray.join(" ") + ". У Вас осталось попыток: " +
-				turnCount + ".");
-			} else {
-				alert("Введённая вами буква верна: " + answerArray.join(" "));
-			}
-		} else {
-			break;
-		}
+		askForSingleLetter();
+	} else {
+		var newGameState = openLettersAndNotify(guess, word, answerArray,
+		remainingLetters, turnCount);
+		remainingLetters = newGameState.newRemainingLetters;
+		turnCount = newGameState.newTurnCount;
 	}
 }
-
-if (userExited) {
-	alert("Очень жаль что вы завершили игру! Возвращайтесь в нашу игру. " +
-	"Было загадано слово: \"" +word + "\".");
-} else if (turnCount === 0) {
-	alert("К сожалению, попытки кончились! Было загадано слово: \"" + word +
-	"\".");
-} else {
-	alert("Победа! Было загадано слово: \"" + word + "\".");
-}
+showAnswerAndRatePlayer(userExited, turnCount, word);
 </script>
 </body>
 </html>

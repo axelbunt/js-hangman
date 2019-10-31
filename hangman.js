@@ -82,10 +82,10 @@ function showAnswerAndRatePlayer(userExited, turnCount, word) {
     }
 }
 
-function greeting() {
-    alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер будет" +
-        " загадывать слово, а вы отгадывать его. У Вас будет " + turnCount +
-        " попыток.");
+function greeting(turnCount) {
+    alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер " +
+        "будет загадывать слово, а вы отгадывать его. У Вас будет " +
+        turnCount + " попыток.");
 }
 
 function intro(answerArray) {
@@ -130,26 +130,28 @@ function openLettersAndNotify(guess, word, answerArray, remainingLetters,
     }
 }
 
-var word = pickWord(words);
-var turnCount = 11;
-var answerArray = setupAnswerArray(word);
-var remainingLetters = word.length;
-var userExited = false;
+function startGame() {
+    var word = pickWord(words);
+    var turnCount = 11;
+    var answerArray = setupAnswerArray(word);
+    var remainingLetters = word.length;
+    var userExited = false;
 
-greeting();
-intro(answerArray);
-while (remainingLetters > 0 && turnCount > 0) {
-    var guess = getGuess();
-    if (guess === null) {
-        userExited = true;
-        break;
-    } else if (guess.length !== 1) {
-        askForSingleLetter();
-    } else {
-        var newGameState = openLettersAndNotify(guess, word, answerArray,
-            remainingLetters, turnCount);
-        remainingLetters = newGameState.newRemainingLetters;
-        turnCount = newGameState.newTurnCount;
+    greeting(turnCount);
+    intro(answerArray);
+    while (remainingLetters > 0 && turnCount > 0) {
+        var guess = getGuess();
+        if (guess === null) {
+            userExited = true;
+            break;
+        } else if (guess.length !== 1) {
+            askForSingleLetter();
+        } else {
+            var newGameState = openLettersAndNotify(guess, word, answerArray,
+                remainingLetters, turnCount);
+            remainingLetters = newGameState.newRemainingLetters;
+            turnCount = newGameState.newTurnCount;
+        }
     }
+    showAnswerAndRatePlayer(userExited, turnCount, word);
 }
-showAnswerAndRatePlayer(userExited, turnCount, word);

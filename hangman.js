@@ -53,6 +53,15 @@ var words = [
     "пирамида",
     "число",
 ];
+function greeting(turnCount) {
+    alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер " +
+        "будет загадывать слово, а вы отгадывать его. У Вас будет " +
+        turnCount + " попыток.");
+}
+
+function intro(answerArray) {
+    alert("Загаданое компьютером слово: " + answerArray.join(" "));
+}
 
 function pickWord(words) {
     return words[Math.floor(Math.random() * words.length)];
@@ -70,30 +79,8 @@ function getGuess() {
     return prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
 }
 
-function showAnswerAndRatePlayer(userExited, turnCount, word) {
-    if (userExited) {
-        alert("Очень жаль что вы завершили игру! Возвращайтесь в нашу игру. " +
-            "Было загадано слово: \"" + word + "\".");
-    } else if (turnCount === 0) {
-        alert("К сожалению, попытки кончились! Было загадано слово: \"" + word +
-            "\".");
-    } else {
-        alert("Победа! Было загадано слово: \"" + word + "\".");
-    }
-}
-
-function greeting(turnCount) {
-    alert("\"Виселица\"-игра на угадывание слов. В нашем варианте компьютер " +
-        "будет загадывать слово, а вы отгадывать его. У Вас будет " +
-        turnCount + " попыток.");
-}
-
-function intro(answerArray) {
-    alert("Загаданое компьютером слово: " + answerArray.join(" "));
-}
-
-function askForSingleLetter() {
-    alert("Пожалуйста, введите только одну букву.");
+function notifyAboutRightAnswer(answerArray) {
+    alert("Введённая вами буква верна: " + answerArray.join(" "));
 }
 
 function notifyAboutWrongAnswer(answerArray, turnCount) {
@@ -101,12 +88,11 @@ function notifyAboutWrongAnswer(answerArray, turnCount) {
         ". У Вас осталось попыток: " + turnCount + ".");
 }
 
-function notifyAboutRightAnswer(answerArray) {
-    alert("Введённая вами буква верна: " + answerArray.join(" "));
+function askForSingleLetter() {
+    alert("Пожалуйста, введите только одну букву.");
 }
 
-function openLettersAndNotify(guess, word, answerArray, remainingLetters,
-    turnCount) {
+function openLettersAndNotify(guess, word, answerArray, remainingLetters, turnCount) {
     guess = guess.toLowerCase();
     var correctLetter = false;
     for (var j = 0; j < word.length; j++) {
@@ -127,6 +113,18 @@ function openLettersAndNotify(guess, word, answerArray, remainingLetters,
     return {
         newRemainingLetters: remainingLetters,
         newTurnCount: turnCount,
+    }
+}
+
+function showAnswerAndRatePlayer(userExited, turnCount, word) {
+    if (userExited) {
+        alert("Очень жаль что вы завершили игру! Возвращайтесь в нашу игру. " +
+            "Было загадано слово: \"" + word + "\".");
+    } else if (turnCount === 0) {
+        alert("К сожалению, попытки кончились! Было загадано слово: \"" + word +
+            "\".");
+    } else {
+        alert("Победа! Было загадано слово: \"" + word + "\".");
     }
 }
 

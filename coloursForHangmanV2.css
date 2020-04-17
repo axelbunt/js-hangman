@@ -1,0 +1,22 @@
+h1 {
+    margin: 0px;
+    text-align: center;
+}
+div#exit {
+    text-align: right;
+}
+div#displayStatus {
+    margin: 15px;
+    text-align: center;
+}
+div#restartGame {
+    margin: 15px;
+    visibility: hidden;
+}
+div {
+    text-align: center;
+}
+input {
+    margin: 30px;
+    text-align: center;
+}

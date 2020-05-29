@@ -87,7 +87,7 @@
 				document.getElementById("displayStatus").innerHTML = "Введите букву, которая по-вашему мнению есть в слове: ";
 				counterOfConfirmActions += 1;
 			} else {
-				var guess = document.getElementById("guessOfPlayer").value;
+				var guess = document.getElementById("guessOfPlayer").value.toLowerCase();
 				if (guess == "" || guess == " " ) {
 					document.getElementById("displayStatus").innerHTML = "Введите только <b>одну букву</b>: ";
 				} else {

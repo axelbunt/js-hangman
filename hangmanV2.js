@@ -1,7 +1,7 @@
 function greeting(turnCount, answerArray) {
     document.getElementById("displayStatus").innerHTML = "\"Виселица\" –  игра на угадывание слов. В нашем варианте " +
     "компьютер будет загадывать слово, а вы отгадывать его. <br>У Вас будет " + turnCount + " попыток.<br>" +
-    "Загаданое компьютером слово: " + answerArray.join(" ") + "<br>Нажмите Ok, чтобы начать.";  // полностью описать правила
+    "Загаданое компьютером слово:<br>" + answerArray.join(" ") + "<br>Нажмите Далее, чтобы начать.";  // полностью описать правила
 }
 
 function pickWord(words) {
@@ -60,18 +60,14 @@ function showAnswerAndRatePlayer(turnCount, word) {
     } else {
         document.getElementById("displayStatus").innerHTML = "Победа! Было загадано слово: \"" + word + "\".";
     }
-    document.getElementById("guessOfPlayer").setAttribute("disabled", true);
-    document.getElementById("confirmActions").setAttribute("disabled", true);
-    document.getElementById("exitButton").setAttribute("disabled", true);
+    document.getElementById("guessOfPlayer").style.display = 'none';
+    document.getElementById("interactWithPlayer").style.display = 'none';
+    document.getElementById("confirmActions").style.display = 'none';
+    document.getElementById("exitButton").style.display = 'none';
     document.getElementById("restartGame").style.visibility = 'visible';
 }
 
 function confirmActions(word, answerArray) {
-    /*if(guess.length != 0) {
-        $('#confirmActions').removeAttr('disabled'); необходимо подключить jquery
-    } else {
-        $('#confirmActions').attr('disabled', 'disabled');
-    }*/
     if (counterOfConfirmActions % 2 == 0) {
         document.getElementById("displayStatus").innerHTML = "Введите букву, которая по-вашему мнению есть в слове: ";
         counterOfConfirmActions += 1;
@@ -101,7 +97,9 @@ function startGame(turnCount, answerArray) {
 
 function exitGame(word) {
     document.getElementById("displayStatus").innerHTML = "Очень жаль, что вы завершили игру. Было загадано слово: " + word + ".";
-    document.getElementById("guessOfPlayer").setAttribute("disabled", true);
-    document.getElementById("confirmActions").setAttribute("disabled", true);
+    document.getElementById("guessOfPlayer").style.display = 'none';
+    document.getElementById("interactWithPlayer").style.display = 'none';
+    document.getElementById("confirmActions").style.display = 'none';
+    document.getElementById("exitButton").style.display = 'none';
     document.getElementById("restartGame").style.visibility = 'visible';
 }

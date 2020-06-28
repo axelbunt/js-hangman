@@ -9,13 +9,13 @@
 </head>
 
 <body onload="startGame(turnCount, answerArray)">
-	<div id="exit"><button id="exitButton" onclick="exitGame(word)">Exit</button></div>
-	<h1>Hangman</h1>
+	<div id="exit"><button id="exitButton" onclick="exitGame(word)">Выход</button></div>
+	<h1>Виселица</h1>
 	<div id="displayStatus"></div>
 	<div id="interactWithPlayer">
 		<input id="guessOfPlayer" type="text" maxlength="1"><br>
-		<button id="confirmActions" onclick="confirmActions(word, answerArray)">Ok</button>
+		<button id="confirmActions" onclick="confirmActions(word, answerArray)">Далее</button>
 	</div>
-	<div id="restartGame">Press F5 to restart</div>
+	<div id="restartGame">Обновите страницу, чтобы играть снова.</div>
 </body>
 </html>

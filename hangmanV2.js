@@ -38,11 +38,11 @@ function openLettersAndNotify(guess, word, answerArray, remainingLetters) {
         } else {
             if (correctLetter == false) {
                 turnCount--;
-                document.getElementById("displayStatus").innerHTML = "К сожалению, данной буквы в слове нет: "+answerArray.join(" ")
-                 + ". <br>У Вас осталось попыток: " + turnCount + ".";
+                document.getElementById("displayStatus").innerHTML = "К сожалению, данной буквы в слове нет:<br>"+answerArray.join(" ")
+                 + "<br>У Вас осталось попыток: " + turnCount + ".";
             } else {
-                document.getElementById("displayStatus").innerHTML = "Введённая Вами буква верна: " + answerArray.join(" ")
-                 +  ". <br>У Вас осталось попыток: " + turnCount + ".";
+                document.getElementById("displayStatus").innerHTML = "Введённая Вами буква верна:<br>" + answerArray.join(" ")
+                 +  "<br>У Вас осталось попыток: " + turnCount + ".";
         }
         }
     }

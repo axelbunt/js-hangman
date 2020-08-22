@@ -14,14 +14,20 @@ h1 {
 div {
     text-align: center;
 }
-div#exit {
-    text-align: right;
+div#showAlreadyUsedLetters {
+    margin-top: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
 }
 div#displayStatus {
     margin-top: 15px;
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 }
+div#exit {
+    text-align: right;
+}
+
 
 
 input {

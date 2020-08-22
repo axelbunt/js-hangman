@@ -1,11 +1,18 @@
 body {
     background-image: url(background.jpg);
 }
+
+
 h1 {
     margin: 0px;
     text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: 3em;
+}
+
+
+div {
+    text-align: center;
 }
 div#exit {
     text-align: right;
@@ -15,18 +22,8 @@ div#displayStatus {
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 }
-div#restartGame {
-    margin: 15px;
-    visibility: hidden;
-    font-family: 'Open Sans', sans-serif;
-}
-div {
-    text-align: center;
-}
-div#restartGame {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 25px;
-}
+
+
 input {
     outline: none;
     border-width: 1px;
@@ -44,6 +41,8 @@ input:focus {
     transform: scale(1.05);
     transition: 0.1s;
 }
+
+
 button {
     cursor: pointer;
     outline: none;
@@ -51,6 +50,31 @@ button {
     border-radius: 8px;
     color: white;
 }
+
+.alph_button {
+    font-size: 20px;
+    margin: 20px;
+    background-color: hsl(220, 100%, 50%);
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    font-family: monospace;
+}
+
+button#confirmActions {
+    font-size: 25px;
+    transition: 0.7s;
+    background-color: hsl(220, 100%, 50%);
+}
+button#confirmActions:hover {
+    font-size: 25px;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    background-color: hsl(220, 100%, 50%);
+    box-shadow: 0 0 15px 0 hsl(220, 100%, 50%);
+}
+
 button#exitButton {
     font-size: 20px;
     transition: 0.7s;
@@ -64,13 +88,17 @@ button#exitButton:hover {
     background-color: hsl(0, 100%, 50%);
     box-shadow: 0 0 15px 0 hsl(0, 100%, 50%);
 }
-button#confirmActions {
+
+button#restartGame {
+    text-align: center;
+    margin: 15px;
+    visibility: hidden;
+    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
     transition: 0.7s;
     background-color: hsl(220, 100%, 50%);
 }
-button#confirmActions:hover {
-    font-size: 25px;
+button#restartGame:hover {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);

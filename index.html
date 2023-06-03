@@ -107,22 +107,22 @@
         })
 
         order.addEventListener("click", () => {
-            document.getElementById("error").innerText = "";
+            document.getElementById("error_message").innerText = "";
             let user_name = document.getElementById("user_name").value;
             let user_email = document.getElementById("user_email").value;
             let user_phone = document.getElementById("user_phone").value;
 
             /* user data check */
             if (user_name.lenght < 5) {
-                document.getElementById("error").innerText = "Error in name";
+                document.getElementById("error_message").innerText = "Error in name";
                 return;
             }
             if (user_email.lenght < 5) {
-                document.getElementById("error").innerText = "Error in email";
+                document.getElementById("error_message").innerText = "Error in email";
                 return;
             }
             if (user_phone.lenght < 5) {
-                document.getElementById("error").innerText = "Error in phone";
+                document.getElementById("error_message").innerText = "Error in phone";
                 return;
             }
 

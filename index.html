@@ -109,29 +109,29 @@
 
         order.addEventListener("click", () => {
             document.getElementById("error_message").innerText = "";
-            let user_name = document.getElementById("user_name").value;
-            let user_email = document.getElementById("user_email").value;
-            let user_phone = document.getElementById("user_phone").value;
+            let name = document.getElementById("user_name").value;
+            let email = document.getElementById("user_email").value;
+            let phone = document.getElementById("user_phone").value;
 
             /* user data check */
-            if (user_name.lenght < 5) {
+            if (name.lenght < 5) {
                 document.getElementById("error_message").innerText = "Error in name";
                 return;
             }
-            if (user_email.lenght < 5) {
+            if (email.lenght < 5) {
                 document.getElementById("error_message").innerText = "Error in email";
                 return;
             }
-            if (user_phone.lenght < 5) {
+            if (phone.lenght < 5) {
                 document.getElementById("error_message").innerText = "Error in phone";
                 return;
             }
 
             /* send user data to bot */
             let data = {
-                name: user_name,
-                email: user_email,
-                phone: user_phone
+                name: name,
+                email: email,
+                phone: phone
             }
             tg.sendData(JSON.stringify(data))
 

@@ -113,7 +113,7 @@
             let user_phone = document.getElementById("user_phone").value;
 
             /* user data check */
-            if (user_name.lenght < 5) {
+            if (user_name.lenght == 0) {
                 document.getElementById("error_message").innerText = "Error in name";
                 return;
             }

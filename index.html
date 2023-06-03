@@ -113,7 +113,7 @@
             let user_phone = document.getElementById("user_phone").value;
 
             /* user data check */
-            if (user_name.lenght == 0) {
+            if (user_name.lenght < 5) {
                 document.getElementById("error_message").innerText = "Error in name";
                 return;
             }
@@ -132,6 +132,7 @@
                 email: user_email,
                 phone: user_phone
             }
+            console.log(data);
             tg.sendData(JSON.stringify(data))
 
             tg.close();

@@ -103,14 +103,17 @@
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
 
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+            // data autofill work only with InlineKeyboardMarkup, but from InlineKeyboardMarkup we can't send any data to bot
+            // document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         })
 
         order.addEventListener("click", () => {
+            console.log("1")
             document.getElementById("error_message").innerText = "";
             let user_name = document.getElementById("user_name").value;
             let user_email = document.getElementById("user_email").value;
             let user_phone = document.getElementById("user_phone").value;
+            console.log(user_name);
 
             /* user data check */
             if (user_name.lenght < 5) {
@@ -132,7 +135,6 @@
                 email: user_email,
                 phone: user_phone
             }
-            console.log(data);
             tg.sendData(JSON.stringify(data))
 
             tg.close();

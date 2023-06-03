@@ -83,7 +83,7 @@
         <h1>Just some header</h1>
         <img src="https://img.freepik.com/vektoren-kostenlos/fliegende-scheibe-pizza-cartoon-vektor-illustration-fast-food-konzept-isolierter-vektor-flacher-cartoon-stil_138676-1934.jpg?w=740&t=st=1685776938~exp=1685777538~hmac=6083aabfdc26128768476e4686a8b75892a9ba4f5199f6fefccffa977e8796f5">
         <p>This is description of this beautiful pizza</p>
-        <button id="but">Buy this</button>
+        <button id="buy">Buy this</button>
     </div>
     <form id="form">
         <input type="text" placeholder="Name" id="user_name">
@@ -92,5 +92,21 @@
         <button id="order">Place Order</button>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.getElementById('buy');
+        let order = document.getElementById('order');
+
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+        })
+
+        order.addEventListener("click", () => {
+            tg.close();
+        })
+    </script>
 </body>
 </html>

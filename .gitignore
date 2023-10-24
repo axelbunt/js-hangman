@@ -89,6 +89,6 @@ lerna-debug.log
 Thumbs.db
 
 # first version of game
-hangman.html
-coloursForHangman.css
-hangman.js
+v1/hangman.html
+v1/coloursForHangman.css
+v1/hangman.js

@@ -2,33 +2,32 @@ body {
     background-image: url(background.jpg);
 }
 
-
 h1 {
-    margin: 0px;
+    margin: 0;
     text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: 3em;
 }
 
-
 div {
     text-align: center;
 }
+
 div#showAlreadyUsedLetters {
     margin-top: 6px;
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 }
+
 div#displayStatus {
     margin-top: 15px;
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 }
+
 div#exit {
     text-align: right;
 }
-
-
 
 input {
     outline: none;
@@ -39,6 +38,7 @@ input {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
 }
+
 input:focus {
     margin: 15px;
     text-align: center;
@@ -47,7 +47,6 @@ input:focus {
     transform: scale(1.05);
     transition: 0.1s;
 }
-
 
 button {
     cursor: pointer;
@@ -72,6 +71,7 @@ button#confirmActions {
     transition: 0.7s;
     background-color: hsl(220, 100%, 50%);
 }
+
 button#confirmActions:hover {
     font-size: 25px;
     -webkit-transform: scale(1.05);
@@ -86,6 +86,7 @@ button#exitButton {
     transition: 0.7s;
     background-color: hsl(0, 100%, 50%);
 }
+
 button#exitButton:hover {
     font-size: 20px;
     -webkit-transform: scale(1.05);
@@ -104,6 +105,7 @@ button#restartGame {
     transition: 0.7s;
     background-color: hsl(220, 100%, 50%);
 }
+
 button#restartGame:hover {
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);

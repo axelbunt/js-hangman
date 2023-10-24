@@ -9,14 +9,19 @@
 </head>
 
 <body onload="startGame(turnCount, answerArray)">
-	<div id="exit"><button id="exitButton" onclick="exitGame(word)">Выход</button></div>
+	<div id="exit">
+		<button id="exitButton" onclick="exitGame(word)">Выход</button>
+	</div>
 	<h1>Виселица</h1>
 	<div id="displayStatus"></div>
 	<div id="interactWithPlayer">
 		<div>
 			<div id='showAlreadyUsedLetters'></div>
 		</div>
-		<input id="guessOfPlayer" type="text" maxlength="1"><br>
+		<label for="guessOfPlayer">
+			<input id="guessOfPlayer" type="text" maxlength="1">
+		</label>
+		<br>
 		<button id="confirmActions" onclick="confirmActions(word, answerArray)">Далее</button>
 	</div>
 	<div>

@@ -87,3 +87,8 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# first version of game
+v1/hangman.html
+v1/coloursForHangman.css
+v1/hangman.js

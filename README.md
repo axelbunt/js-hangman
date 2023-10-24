@@ -1,5 +1,5 @@
-# js-hangman
-Простая, весёлая игра "Виселица".
+# JS Hangman
+Простая, весёлая игра "Виселица", созданная мною в далеком 2019-ом году.
 
-Добавлен новый графический интерфейс.
-Играть можно [здесь](https://axelbunt.github.io/js-hangman/hangmanV2.html).
+Код приведен к станадарту ES6.  
+Играть можно [здесь](https://axelbunt.github.io/js-hangman/hangman.html).
